@@ -11,7 +11,7 @@ const Canvas = function() {
     this.initFirstFrame();
     this.loadImages();
     updateOnScroll(0, 1, this.draw);
-    updateOnScroll(0.7, 1, this.lift);
+    // updateOnScroll(0.7, 1, this.lift);
 
     window.addEventListener(
       "resize",
@@ -25,13 +25,13 @@ const Canvas = function() {
     const { canvas_element } = this.config;
 
     canvas_element.style.top = `calc(50% - ${position * 100}%)`;
-  }
+  };
 
   this.initFirstFrame = () => {
     const { ext, urlRoot, width, height } = this.config;
     // Load first frame
     const image = new Image();
-    image.src = urlRoot + "0" + ext;
+    image.src = urlRoot + "00" + ext;
     // Object(u.a)(this.container) && this.container.appendChild(t),
     this.config.images[0] = image;
     this.config.length += 1;
@@ -56,22 +56,37 @@ const Canvas = function() {
         this.config.length += 1;
       };
 
-      image.src = this.config.urlRoot + i + this.config.ext;
+      image.src =
+        this.config.urlRoot + (i < 10 ? `0${i}` : i) + this.config.ext;
     }
   };
 
   this.setDimensions = () => {
-    const width = this.config.width;
-    const height = this.config.height;
-
+    const { width, height } = this.config;
+    
     this.config.canvas_element.setAttribute("width", width);
     this.config.canvas_element.setAttribute("height", height);
+  };
+
+  this.clearCanvas = () => {
+    this.config.ctx.clearRect(
+      0,
+      0,
+      this.config.canvas_element.width,
+      this.config.canvas_element.height
+    );
   };
 
   this.draw = position => {
     const { images, width, height, count, length } = this.config;
     if (count !== length) return;
-    const index = (position * 100).toFixed(0);
+    let index = (position * this.config.count - 1).toFixed(0);
+    if (index <= 0) {
+      index = 0;
+    }
+    console.log(images[index], index);
+    this.clearCanvas();
+
     this.config.ctx.drawImage(images[index], 0, 0, width, height);
   };
 };

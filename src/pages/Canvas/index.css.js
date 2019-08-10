@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CanvasWrapperCss = styled.div`
   background: black;
-  height: 500vh;
+  height: 300vh;
 
   canvas {
     position: fixed;

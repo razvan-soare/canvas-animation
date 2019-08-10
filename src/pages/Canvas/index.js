@@ -17,16 +17,18 @@ class CanvasPage extends React.Component {
       // CANVAS //
       ctx: canvas.getContext("2d"), // canvas 2d context
       canvas_element: canvas,
-      height: 567,
-      width: 264,
+      width: 1920,
+      height: 1080,
 
       // IMAGE //
       urlRoot:
-        "https://cdn.opstatics.com/store/20170907/assets/images/events/2019/04/18821/highlight/phones/phone",
-      count: 101,
+        "https://chanappr.sirv.com/Bryant-dental/2019-clay/bryantDental_clay_360_2.5_pngSeq_R01_000",
+      // urlRoot:
+      //   "https://cdn.opstatics.com/store/20170907/assets/images/events/2019/04/18821/highlight/phones/phone",
+      count: 79,
       images: [],
       length: 0,
-      ext: ".jpg",
+      ext: ".png",
       curFrame: 0,
       loading: false
     };
@@ -39,9 +41,7 @@ class CanvasPage extends React.Component {
   render() {
     return (
       <CanvasWrapperCss>
-        <canvas ref={this.canvas}>
-          Fall back if the canvas is no working
-        </canvas>
+        <canvas ref={this.canvas}>Fall back if the canvas is no working</canvas>
       </CanvasWrapperCss>
     );
   }
