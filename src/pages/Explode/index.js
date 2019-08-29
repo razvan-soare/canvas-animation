@@ -17,18 +17,19 @@ class CanvasPage extends React.Component {
       // CANVAS //
       ctx: canvas.getContext("2d"), // canvas 2d context
       canvas_element: canvas,
+      // width: 1920,
+      // height: 1080,
       width: 1080,
       height: 607,
 
       // IMAGE //
       urlRoot:
-        "https://chanappr.sirv.com/Bryant-dental/2019-clay/basic-rotate/bryantDental_clay_360_2.5_pngSeq_R01_000",
-      // urlRoot:
-      //   "https://cdn.opstatics.com/store/20170907/assets/images/events/2019/04/18821/highlight/phones/phone",
-      count: 79,
+        "https://chanappr.sirv.com/Bryant-dental/2019-clay/explode-clay/bryantDental_exploded_clay_00",
+
+      count: 80,
       images: [],
       length: 0,
-      ext: ".png",
+      ext: ".jpg",
       curFrame: 0,
       loading: false
     };
