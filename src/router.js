@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Canvas from "./pages/Canvas";
 import Explode from "./pages/Explode";
+import ExplodeNoRotate from "./pages/ExplodeNoRotate";
 import BigGlasses from "./pages/BigGlasses";
 
 // import PixiPage from './pages/PixiPage';
@@ -11,18 +12,28 @@ const AppRouter = () => {
   return (
     <Router>
       <>
-        <div style={{ zIndex: 100, position: "relative", background: 'lightgreen' }}>
+        <div
+          style={{
+            zIndex: 100,
+            position: "relative",
+            background: "lightgreen"
+          }}
+        >
           <Link to="/" style={{ marginRight: "15px" }}>
             Basic 360
           </Link>
           <Link to="/explode" style={{ marginRight: "15px" }}>
             Explode
           </Link>
+          <Link to="/explode-no-rotate" style={{ marginRight: "15px" }}>
+            Explode No rotate
+          </Link>
           <Link to="/glasses">Big Glasses</Link>
         </div>
         <Switch>
           <Route path="/" exact component={Canvas} />
           <Route path="/explode" component={Explode} />
+          <Route path="/explode-no-rotate" component={ExplodeNoRotate} />
           <Route path="/glasses" component={BigGlasses} />
           {/* <Route path="/three" exact component={ThreePage} /> */}
         </Switch>
